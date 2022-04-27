@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const DB = process.env.DB
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,7 +13,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // rajkumar sir private cluster
-mongoose.connect('mongodb+srv://data123:data123@cluster0.exouw.mongodb.net/Meta-Cricket?retryWrites=true&w=majority')
+mongoose.connect(DB)
 .then(() => console.log('MongoDB Database Connected'))
 .catch(err => console.log(err)) 
 
